@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Fire Prediction</title>
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Main Container */
+        .container {
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        /* Header */
+        h1 {
+            color: #333;
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+
+        /* Form Styling */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Input Fields */
+        input {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            width: 95%;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #007BFF;
+        }
+
+        /* Submit Button */
+        button {
+            background-color: #007BFF;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Result Display */
+        h2 {
+            margin-top: 25px;
+            color: #28a745;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Algerian Forest Fire FWI Prediction 🔥</h1>
+        
+        <form action="{{ url_for('predict_datapoint') }}" method="post">
+            <input type="text" name="Temperature" placeholder="Temperature (°C)" required="required" />
+            <input type="text" name="RH" placeholder="Relative Humidity (%)" required="required" />
+            <input type="text" name="Ws" placeholder="Wind Speed (km/h)" required="required" />
+            <input type="text" name="Rain" placeholder="Rain (mm)" required="required" />
+            <input type="text" name="FFMC" placeholder="Fine Fuel Moisture Code (FFMC)" required="required" />
+            <input type="text" name="DMC" placeholder="Duff Moisture Code (DMC)" required="required" />
+            <input type="text" name="DC" placeholder="Drought Code (DC)" required="required" />
+            <input type="text" name="ISI" placeholder="Initial Spread Index (ISI)" required="required" />
+            <input type="text" name="BUI" placeholder="Buildup Index (BUI)" required="required" />
+            
+
+
+
+            
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict FWI</button>
+        </form>
+
+        <h2>
+           The FWI prediction is {{results}}
+        </h2>
+    </div>
+</body>
+
+</html>
