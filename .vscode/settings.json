@@ -1,0 +1,26 @@
+{
+    // --- Python Interpreter Settings ---
+    // Tells VS Code to use the Python executable from your virtual environment.
+    // This is the most important setting for your project.
+    "python.defaultInterpreterPath": "${workspaceFolder}/mlenv/Scripts/python.exe",
+
+    // --- Code Formatting Settings (using 'black') ---
+    // Sets 'black' as the default formatter for Python files.
+    "python.formatting.provider": "black",
+    // Automatically formats your code every time you save the file.
+    "editor.formatOnSave": true,
+
+    // --- Code Linting Settings (using 'pylint') ---
+    // Enables pylint to check your code for errors and style issues.
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+
+    // --- File Explorer Settings ---
+    // Hides unnecessary folders from the VS Code file explorer to keep it clean.
+    "files.exclude": {
+        "**/.git": true,
+        "**/.DS_Store": true,
+        "**/__pycache__": true,
+        "**/.pytest_cache": true
+    }
+}
